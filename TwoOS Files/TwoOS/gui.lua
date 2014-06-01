@@ -3,7 +3,7 @@ os.loadAPI("TwoOS/APIs/settings")
 os.loadAPI("TwoOS/APIs/SHA256util")
 
 function _G.os.version()
-	return "TwoOS V.0.5 Alpha"
+	return "Tw0OS V.0.5 Alpha"
 end
 _G.os.pullEvent = function( _sFilter )
 	if _sFilter == "mouse_click" then

@@ -3,7 +3,7 @@ os.loadAPI("TwoOS/APIs/settings")
 os.loadAPI("TwoOS/APIs/SHA256util")
 
 function _G.os.version()
-	return "Tw0OS V.0.5 Alpha"
+	return "Tw0OS V.1 Beta 1"
 end
 _G.os.pullEvent = function( _sFilter )
 	if _sFilter == "mouse_click" then
@@ -102,7 +102,17 @@ function drawCurrentPrograms()
 		term.write(runProg[i] .. " ")
 	end
 end
-
+function showAbout()
+	term.setTextColor(colors.yellow)
+	term.setBackgroundColor(colors.gray)
+	term.clear()
+	term.setCursorPos(1,1)
+	print[[Welcome to TwoOS
+	TwoOS is an OS made by logsys to replace LogOS
+	Some features are replaced and not available]]
+	print("Press any key to continue")
+	coroutine.yield("char")
+end
 function drawDesktop()
 	term.setBackgroundColor(colors.white)
 	term.clear()
@@ -119,6 +129,8 @@ function drawMenu()
 	print("============")
 	print("Shutdown    ")
 	print("Reboot      ")
+	print("============")
+	print("About       ")
 end
 --functions to run the programs
 runProg = function(program, ...)
@@ -188,6 +200,9 @@ function mainFunc()
 					takeDown("shutdown")
 				elseif y == 6 then
 					takeDown("reboot")
+				elseif y == 7 then
+					showAbout()
+					printed = false
 				end
 			end
 		end
